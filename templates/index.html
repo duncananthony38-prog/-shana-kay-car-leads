@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ agent_name }} | {{ dealership_name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+  <main class="shell">
+
+    <section class="hero">
+      <div class="badge">Ken Ganley CDJR Bedford Sales</div>
+
+      <h1>Shop with {{ agent_name }}</h1>
+
+      <p class="sub">
+        Looking for a Chrysler, Dodge, Jeep or Ram?
+        Send your request directly to {{ agent_name }} at
+        {{ dealership_name }} and get help finding the right vehicle.
+      </p>
+
+      <div class="agent-card">
+        <div>
+          <div class="agent-name">{{ agent_name }}</div>
+          <div class="agent-meta">{{ agent_phone_display }}</div>
+          <div class="agent-meta">{{ agent_email }}</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="button secondary" href="tel:{{ agent_phone }}">
+          Call Shana-Kay
+        </a>
+
+        <a class="button secondary" href="sms:{{ agent_phone }}">
+          Text Shana-Kay
+        </a>
+
+        <a class="button secondary" href="mailto:{{ agent_email }}">
+          Email Shana-Kay
+        </a>
+
+        <a class="button ghost"
+           href="{{ dealership_url }}"
+           target="_blank"
+           rel="noopener">
+          Browse Dealership
+        </a>
+      </div>
+    </section>
+
+
+    <section class="card">
+
+      <h2>Tell Shana-Kay what you're looking for</h2>
+
+      <p class="muted">
+        Submit your information below and Shana-Kay can follow up
+        about your vehicle inquiry.
+      </p>
+
+      <form method="post" action="/submit">
+
+        <input type="hidden" name="source" value="{{ source }}">
+
+        <label>
+          Full name
+          <input name="name" required placeholder="Your name">
+        </label>
+
+        <label>
+          Phone number
+          <input
+            name="phone"
+            required
+            inputmode="tel"
+            placeholder="(555) 555-5555">
+        </label>
+
+        <label>
+          Email
+          <input
+            name="email"
+            type="email"
+            placeholder="you@example.com">
+        </label>
+
+        <label>
+          Vehicle you're interested in
+          <input
+            name="vehicle"
+            placeholder="e.g. Jeep Grand Cherokee">
+        </label>
+
+        <label>
+          Preferred contact method
+
+          <select name="contact_method">
+            <option>Text</option>
+            <option>Phone call</option>
+            <option>Email</option>
+          </select>
+        </label>
+
+        <label>
+          Anything else?
+
+          <textarea
+            name="notes"
+            rows="4"
+            placeholder="Model, budget, trade-in, preferred appointment time, etc."></textarea>
+        </label>
+
+        <label class="consent">
+
+          <input
+            type="checkbox"
+            name="consent"
+            required>
+
+          <span>
+            I agree that Shana-Kay Gardener and/or the dealership
+            may contact me about my vehicle inquiry.
+          </span>
+
+        </label>
+
+        <button class="button primary" type="submit">
+          Send request to Shana-Kay
+        </button>
+
+      </form>
+
+      <p class="privacy">
+        Your information is submitted voluntarily for this vehicle
+        inquiry and shared with the sales contact handling the lead.
+      </p>
+
+    </section>
+
+  </main>
+</body>
+</html>

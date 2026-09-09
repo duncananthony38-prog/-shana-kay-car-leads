@@ -17,8 +17,7 @@ AGENT_PHONE_DISPLAY = os.getenv("AGENT_PHONE_DISPLAY", "+1 (848) 298-9384")
 AGENT_EMAIL = os.getenv("AGENT_EMAIL", "Sgardener@ganleyauto.com")
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
-
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "-5522461054")
 LEADS_FILE = Path("leads.csv")
 
 def make_lead_id():
